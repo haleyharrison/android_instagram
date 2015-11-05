@@ -35,13 +35,37 @@ public class MainActivity extends AppCompatActivity{
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+
+    ParseQuery<ParseObject> query = ParseQuery.getQuery("Score");
+
+    query.getInBackground("SsGeMFBemA", new GetCallback<ParseObject>() {
+      @Override
+      public void done(ParseObject object, ParseException e) {
+
+          if (e == null) {
+
+            object.put("username", "b");
+            object.saveInBackground();
+
+
+          }
+      }
+    });
+
+
+
+
+
+
+
+
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
 
-    ParseObject score = new ParseObject("Score");
+   /* ParseObject score = new ParseObject("Score");
     score.put("username", "a");
     score.put("score", 9009);
-    score.saveInBackground();
+    score.saveInBackground();*/
 
   }
 
