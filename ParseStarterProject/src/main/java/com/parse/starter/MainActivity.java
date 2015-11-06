@@ -27,6 +27,8 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity{
 
@@ -38,38 +40,20 @@ public class MainActivity extends AppCompatActivity{
 
     ParseQuery<ParseObject> query = ParseQuery.getQuery("Score");
 
-    query.getInBackground("SsGeMFBemA", new GetCallback<ParseObject>() {
+    query.findInBackground(new FindCallback<ParseObject>() {
       @Override
-      public void done(ParseObject object, ParseException e) {
-
-          if (e == null) {
-
-            object.put("username", "b");
-            object.saveInBackground();
+      public void done(List<ParseObject> objects, ParseException e) {
 
 
-          }
+        if (e == null)
       }
     });
-
-
-
-
-
-
 
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
 
-   /* ParseObject score = new ParseObject("Score");
-    score.put("username", "a");
-    score.put("score", 9009);
-    score.saveInBackground();*/
-
   }
-
-
 
 
   @Override
