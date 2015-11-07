@@ -10,6 +10,7 @@ package com.parse.starter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -39,15 +40,9 @@ public class MainActivity extends AppCompatActivity{
 
 
     ParseQuery<ParseObject> query = ParseQuery.getQuery("Score");
+    //asserts what class you're querying for something
+    query.whereEqualTo("username", )
 
-    query.findInBackground(new FindCallback<ParseObject>() {
-      @Override
-      public void done(List<ParseObject> objects, ParseException e) {
-
-
-        if (e == null)
-      }
-    });
 
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
